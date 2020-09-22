@@ -6,7 +6,7 @@ function App() {
     // <div className="App">
     //   <h1>My first REACT app!</h1>
     // </div>
-      React.createElement('div', null, 'h1', 'I\'m a React.createElement... element')
+      React.createElement('div', null, React.createElement('h1',null,'I\'m a React.createElement element'))
   );
 }
 
