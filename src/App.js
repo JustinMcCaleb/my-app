@@ -27,7 +27,7 @@ render() {
     return (
     <div className="App">
         <h1>My first REACT app!</h1>
-        <button onClick={this.switchNameHandler.bind(this, 'DANGER')}>Switch name</button>
+        <button onClick={() => this.switchNameHandler('Danger')}>Switch name</button>
         <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age}/>
