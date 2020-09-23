@@ -1,10 +1,11 @@
 import React from 'react';
 
-const person = () => {
+const person = (props) => {
     return (
         <div>
-            <p>I'm a person!</p>
-            <h5>This is a subheading</h5>
+            <p onClick={props.click}>I'm {props.name} and I am {props.age}!</p>
+            <p>{props.children}</p>
+            <input type="text" onChange={props.changed} value={props.name}/>
         </div>
     );
 };
