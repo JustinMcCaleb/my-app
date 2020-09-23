@@ -22,11 +22,21 @@ class App extends Component{
             })
     }
 
+    typeNameHandler = (event) => {
+        this.setState({ persons: [
+                { name: 'Justin', age: 26 },
+                { name: event.target.value, age: 27 },
+                { name: 'Fluffy', age: 278}
+            ]
+        })
+    }
+
 
 render() {
     return (
     <div className="App">
         <h1>My first REACT app!</h1>
+        {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
         <button onClick={() => this.switchNameHandler('Danger')}>Switch name</button>
         <Person
             name={this.state.persons[0].name}
@@ -34,7 +44,8 @@ render() {
         <Person
             name={this.state.persons[1].name}
             age={this.state.persons[1].age}
-            click={this.switchNameHandler.bind(this, 'Justin')}/>
+            click={this.switchNameHandler.bind(this, 'Justin')}
+            changed={this.typeNameHandler}/>
         <Person
             name={this.state.persons[2].name}
             age={this.state.persons[2].age}>I am Magic</Person>
