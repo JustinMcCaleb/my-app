@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
+import UserOutput from './UserOutput/UserOutput';
+import UserInput from './UserInput/UserInput';
 
 class App extends Component{
     state = {
@@ -60,7 +62,7 @@ render() {
             age={this.state.persons[2].age}>I am Magic</Person>
         <div className={'assignmentOne'}>
             <h1>Assignment One</h1>
-
+            <UserOutput/>
         </div>
     </div>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
