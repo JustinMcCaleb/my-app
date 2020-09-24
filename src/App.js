@@ -65,6 +65,7 @@ render() {
             <UserOutput
                 userName={"Ol Jeff"}
             />
+            <UserInput/>
         </div>
     </div>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
