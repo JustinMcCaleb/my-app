@@ -1,0 +1,10 @@
+.UserInput {
+    margin: 8px;
+}
+
+.UserInput input {
+    height: 25px;
+    width: 50%;
+    background-color: black;
+    color: white;
+}
