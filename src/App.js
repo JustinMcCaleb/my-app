@@ -62,7 +62,9 @@ render() {
             age={this.state.persons[2].age}>I am Magic</Person>
         <div className={'assignmentOne'}>
             <h1>Assignment One</h1>
-            <UserOutput/>
+            <UserOutput
+                userName={"Ol Jeff"}
+            />
         </div>
     </div>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
