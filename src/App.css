@@ -1,3 +1,14 @@
+body {
+  background: rgb(34,122,195);
+  background: linear-gradient(90deg, rgba(34,122,195,0.5) 0%, rgba(253,45,243,0.500437675070028) 100%);}
+
 .App {
   text-align: center;
+  border: 2px solid rgba(6, 195, 88, 0.6);
+}
+
+.assignmentOne {
+  width: 30%;
+  margin: 16px auto;
+  border: 2px solid deeppink;
 }
