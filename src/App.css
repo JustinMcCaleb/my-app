@@ -2,3 +2,9 @@
   text-align: center;
   border: 2px solid rgba(6, 195, 88, 0.6);
 }
+
+.assignmentOne {
+  width: 30%;
+  margin: 16px auto;
+  border: 2px solid deeppink;
+}

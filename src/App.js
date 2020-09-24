@@ -36,7 +36,9 @@ render() {
     const btnStyle = {
         backgroundColor: '#b7c3b7',
         border: '1px solid blue',
-        padding: '8px'
+        padding: '8px',
+        cursor: 'pointer',
+        font: 'inherit'
     }
     return (
     <div className="App">
@@ -56,6 +58,10 @@ render() {
         <Person
             name={this.state.persons[2].name}
             age={this.state.persons[2].age}>I am Magic</Person>
+        <div className={'assignmentOne'}>
+            <h1>Assignment One</h1>
+
+        </div>
     </div>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
       // React.createElement('div', {className: 'App'}, React.createElement('h1',null,'I\'m a React.createElement element'))
