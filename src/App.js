@@ -33,11 +33,18 @@ class App extends Component{
 
 
 render() {
+    const btnStyle = {
+        backgroundColor: '#b7c3b7',
+        border: '1px solid blue',
+        padding: '8px'
+    }
     return (
     <div className="App">
         <h1>My first REACT app!</h1>
         {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
-        <button onClick={() => this.switchNameHandler('Danger')}>Switch name</button>
+        <button
+            style={btnStyle}
+            onClick={() => this.switchNameHandler('Danger')}>Switch name</button>
         <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age}/>
