@@ -10,8 +10,10 @@ class App extends Component{
             { name: 'Justin', age: 26 },
             { name: 'Chey', age: 27 },
             { name: 'Fluffy', age: 278}
-        ]
+        ],
+        username: "Good Ol Jeff"
     }
+
 
     switchNameHandler = (newName) => {
         //DONT DO THIS
@@ -31,6 +33,10 @@ class App extends Component{
                 { name: 'Fluffy', age: 278}
             ]
         })
+    }
+
+    usernameHandler = (event) => {
+        this.setState({username: event.target.value})
     }
 
 
@@ -63,9 +69,12 @@ render() {
         <div className={'assignmentOne'}>
             <h1>Assignment One</h1>
             <UserOutput
-                userName={"Ol Jeff"}
+                username={this.state.username}
             />
-            <UserInput/>
+            <UserInput
+                username={this.state.username}
+                changed={this.usernameHandler}
+            />
         </div>
     </div>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
