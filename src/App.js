@@ -58,14 +58,10 @@ render() {
         cursor: 'pointer',
         font: 'inherit'
     }
-    return (
-    <div className="App">
-        <h1>My first REACT app!</h1>
-        {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
-        <button
-            style={btnStyle}
-            onClick={this.togglePersonHandler}>Show My Peeps</button>
-        { this.state.showPersons ?
+
+    let persons = null;
+    if(this.state.showPersons){
+        persons = (
             <div>
                 <Person
                     name={this.state.persons[0].name}
@@ -78,8 +74,18 @@ render() {
                 <Person
                     name={this.state.persons[2].name}
                     age={this.state.persons[2].age}>I am Magic</Person>
-            </div> : null
-        }
+            </div>
+        )
+    }
+
+    return (
+    <div className="App">
+        <h1>My first REACT app!</h1>
+        {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
+        <button
+            style={btnStyle}
+            onClick={this.togglePersonHandler}>Show My Peeps</button>
+        {persons}
         <div className={'assignmentOne'}>
             <h1>Assignment One</h1>
             <UserOutput
