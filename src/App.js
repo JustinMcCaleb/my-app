@@ -23,13 +23,23 @@ class App extends Component{
     }
 
     //dynamically changes second persons name to what is typed into input box
-    typeNameHandler = (event) => {
-        this.setState({ persons: [
-                { name: 'Justin', age: 26 },
-                { name: event.target.value, age: 27 },
-                { name: 'Fluffy', age: 278}
-            ]
+    typeNameHandler = (event, id) => {
+        //using the passed in id with findIndex to find the index of the person object with the matching id, and storing that index in a const
+        const personIndex = this.state.persons.findIndex(p => {
+            return p.id === id;
         })
+        //using the personIndex and spread operator to make a copy of the person object so we can manipulate it with no side effects
+        const person = {
+            ...this.state.persons[personIndex]
+        }
+        //updating the name of the copied person object with the value from the input box
+        person.name = event.target.value;
+        //making a copy of the state persons array of objects so we can safely manipulate it
+        const persons = [...this.state.persons];
+        //updating the copied array with the updated person const
+        persons[personIndex] = person;
+        //updating the original state persons array with the copied persons array
+        this.setState({ persons: persons})
     }
 
     //Changes username based on what is typed into input box
@@ -65,19 +75,9 @@ render() {
                             click={() => this.deletePersonHandler(index)}
                             name={person.name}
                             age={person.age}
+                            changed={(event) => this.typeNameHandler(event, person.id)}
                             />
                 })}
-                {/*<Person*/}
-                {/*    name={this.state.persons[0].name}*/}
-                {/*    age={this.state.persons[0].age}/>*/}
-                {/*<Person*/}
-                {/*    name={this.state.persons[1].name}*/}
-                {/*    age={this.state.persons[1].age}*/}
-                {/*    click={this.switchNameHandler.bind(this, 'Justin')}*/}
-                {/*    changed={this.typeNameHandler}/>*/}
-                {/*<Person*/}
-                {/*    name={this.state.persons[2].name}*/}
-                {/*    age={this.state.persons[2].age}>I am Magic</Person>*/}
             </div>
         )
     }
