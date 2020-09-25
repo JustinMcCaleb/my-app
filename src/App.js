@@ -23,7 +23,17 @@ class App extends Component{
     }
 
     //dynamically changes second persons name to what is typed into input box
-    typeNameHandler = (event) => {
+    typeNameHandler = (event, id) => {
+        const personIndex = this.state.persons.findIndex(p => {
+            return p.id === id;
+        })
+
+        const person = {
+            ...this.state.persons[personIndex]
+        }
+
+        person.name = event.target.value;
+
         this.setState({ persons: [
                 { name: 'Justin', age: 26 },
                 { name: event.target.value, age: 27 },
