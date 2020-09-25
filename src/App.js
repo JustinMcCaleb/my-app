@@ -7,9 +7,9 @@ import UserInput from './UserInput/UserInput';
 class App extends Component{
     state = {
         persons: [
-            { name: 'Justin', age: 26 },
-            { name: 'Chey', age: 27 },
-            { name: 'Fluffy', age: 278}
+            { id: 1,name: 'Justin', age: 26 },
+            { id: 2,name: 'Chey', age: 27 },
+            { id: 3,name: 'Fluffy', age: 278}
         ],
         username: "Good Ol Jeff",
         showPersons: false
