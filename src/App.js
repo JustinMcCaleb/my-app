@@ -16,7 +16,9 @@ class App extends Component{
     }
 
     deletePersonHandler = (personIndex) => {
-
+        const persons = this.state.persons;
+        persons.splice(personIndex, 1);
+        this.setState({persons: persons})
     }
 
     //dynamically changes second persons name to what is typed into input box
