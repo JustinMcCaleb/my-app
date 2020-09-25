@@ -65,6 +65,7 @@ render() {
                             click={() => this.deletePersonHandler(index)}
                             name={person.name}
                             age={person.age}
+                            changed={(event) => this.typeNameHandler(event, person.id)}
                             />
                 })}
                 {/*<Person*/}
