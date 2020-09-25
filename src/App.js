@@ -16,7 +16,8 @@ class App extends Component{
     }
 
     deletePersonHandler = (personIndex) => {
-        const persons = this.state.persons;
+        //using the spread operator means the const persons is a COPY of the array and not a referenece to the original, which could be problematic
+        const persons = [...this.state.persons];
         persons.splice(personIndex, 1);
         this.setState({persons: persons})
     }
