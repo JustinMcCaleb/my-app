@@ -61,6 +61,7 @@ render() {
                 {/*instead of hardcoding each person component we take the persons array of abjects and use .map to transform each object into a person component*/}
                 {this.state.persons.map((person,index) => {
                     return <Person
+                            key={person.id}
                             click={() => this.deletePersonHandler(index)}
                             name={person.name}
                             age={person.age}
