@@ -15,16 +15,8 @@ class App extends Component{
         showPersons: false
     }
 
-    //Switches name of first person
-    switchNameHandler = (newName) => {
-        //DONT DO THIS
-        // this.state.persons[0].name = 'DANGER'
-        this.setState({ persons: [
-                { name: newName, age: 26 },
-                { name: 'Chey', age: 27 },
-                { name: 'Fluffy', age: 278}
-            ]
-            })
+    deletePersonHandler = (personIndex) => {
+
     }
 
     //dynamically changes second persons name to what is typed into input box
@@ -63,8 +55,10 @@ render() {
     if(this.state.showPersons){
         persons = (
             <div>
-                {this.state.persons.map(person => {
+                {/*instead of hardcoding each person component we take the persons array of abjects and use .map to transform each object into a person component*/}
+                {this.state.persons.map((person,index) => {
                     return <Person
+                            click={() => this.deletePersonHandler(index)}
                             name={person.name}
                             age={person.age}
                             />
