@@ -34,12 +34,10 @@ class App extends Component{
 
         person.name = event.target.value;
 
-        this.setState({ persons: [
-                { name: 'Justin', age: 26 },
-                { name: event.target.value, age: 27 },
-                { name: 'Fluffy', age: 278}
-            ]
-        })
+        const persons = [...this.state.persons];
+        persons[personIndex] = person;
+
+        this.setState({ persons: persons})
     }
 
     //Changes username based on what is typed into input box
