@@ -66,8 +66,14 @@ class App extends Component{
             })
     }
 
+    //takes in a string and returns it as an array
     stringToArray = (str) => {
         return str.split('');
+    }
+
+    //deletes char
+    deleteCharHandler = (charIndex) => {
+
     }
 
 
@@ -100,6 +106,7 @@ render() {
                return  <CharComponent
                         key={index}
                         textInput={char}
+                        click={() => this.deleteCharHandler(index)}
                         />
             })}
         </div>
@@ -139,6 +146,7 @@ render() {
                 {/*I had to use the /> to get the props to work in ValidationComponent.js*/}
                 <ValidationComponent
                     textLength={this.state.inputLength}
+                    value={this.state.inputValue}
                 />
                 <hr/>
                 {chars}
