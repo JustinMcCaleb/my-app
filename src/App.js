@@ -3,6 +3,8 @@ import './App.css';
 import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
 import UserInput from './UserInput/UserInput';
+import ValidationComponent from './Validation/ValidationComponent';
+import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component{
     state = {
@@ -12,11 +14,13 @@ class App extends Component{
             { id: 3,name: 'Fluffy', age: 278}
         ],
         username: "Good Ol Jeff",
-        showPersons: false
+        showPersons: false,
+        inputLength: 0,
+        inputValue: '',
     }
 
     deletePersonHandler = (personIndex) => {
-        //using the spread operator means the const persons is a COPY of the array and not a referenece to the original, which could be problematic
+        //using the spread operator means the const persons is a COPY of the array and not a reference to the original, which could be problematic
         const persons = [...this.state.persons];
         persons.splice(personIndex, 1);
         this.setState({persons: persons})
@@ -53,16 +57,22 @@ class App extends Component{
         this.setState({showPersons: !doesShow})
     }
 
+    //updates length of input and updates the input value
+    inputLengthHandler = (event) => {
+        this.setState(
+            {
+                inputLength: event.target.value.length,
+                inputValue: event.target.value
+            })
+    }
+
+    stringToArray = (str) => {
+        return str.split('');
+    }
+
 
 
 render() {
-    const btnStyle = {
-        backgroundColor: '#b7c3b7',
-        border: '1px solid blue',
-        padding: '8px',
-        cursor: 'pointer',
-        font: 'inherit'
-    }
 
     let persons = null;
     if(this.state.showPersons){
@@ -82,23 +92,57 @@ render() {
         )
     }
 
+
+
+    let chars = (
+        <div>
+            {this.stringToArray(this.state.inputValue).map((char,index) => {
+               return  <CharComponent
+                        key={index}
+                        textInput={char}
+                        />
+            })}
+        </div>
+    )
+
     return (
     <div className="App">
         <h1>My first REACT app!</h1>
         {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
         <button
-            style={btnStyle}
+            className={'btnStyle'}
             onClick={this.togglePersonHandler}>Show My Peeps</button>
         {persons}
-        <div className={'assignmentOne'}>
-            <h1>Assignment One</h1>
-            <UserOutput
-                username={this.state.username}
-            />
-            <UserInput
-                username={this.state.username}
-                changed={this.usernameHandler}
-            />
+
+        <div className={'assignmentContainer'}>
+            {/*assignment one code*/}
+            <div className={'assignmentOne'}>
+                <h1>Assignment One</h1>
+                <UserOutput
+                    username={this.state.username}
+                />
+                <UserInput
+                    username={this.state.username}
+                    changed={this.usernameHandler}
+                />
+            </div>
+
+            {/*assignment two code*/}
+            <div className={'assignmentTwo'}>
+                <h1>Assignment Two</h1>
+                <input
+                    type="text"
+                    onChange={(event => this.inputLengthHandler(event))}
+                />
+                <p>Total Length: {this.state.inputLength}</p>
+                <hr/>
+                {/*I had to use the /> to get the props to work in ValidationComponent.js*/}
+                <ValidationComponent
+                    textLength={this.state.inputLength}
+                />
+                <hr/>
+                {chars}
+            </div>
         </div>
     </div>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
