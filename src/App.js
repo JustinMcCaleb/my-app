@@ -66,11 +66,22 @@ class App extends Component{
             })
     }
 
+    //takes in a string and returns it as an array
     stringToArray = (str) => {
         return str.split('');
     }
 
-
+    //deletes char
+    deleteCharHandler = (charIndex) => {
+        let copyString = this.state.inputValue;
+        let newCharArray = copyString.split('');
+        newCharArray.splice(charIndex, 1);
+        newCharArray = newCharArray.join('');
+        this.setState({
+            inputValue: newCharArray,
+            inputLength: newCharArray.length
+        });
+    }
 
 render() {
 
@@ -100,6 +111,7 @@ render() {
                return  <CharComponent
                         key={index}
                         textInput={char}
+                        click={() => this.deleteCharHandler(index)}
                         />
             })}
         </div>
@@ -133,6 +145,7 @@ render() {
                 <input
                     type="text"
                     onChange={(event => this.inputLengthHandler(event))}
+                    value={this.state.inputValue}
                 />
                 <p>Total Length: {this.state.inputLength}</p>
                 <hr/>
