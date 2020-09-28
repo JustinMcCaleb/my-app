@@ -16,7 +16,7 @@ class App extends Component{
     }
 
     deletePersonHandler = (personIndex) => {
-        //using the spread operator means the const persons is a COPY of the array and not a referenece to the original, which could be problematic
+        //using the spread operator means the const persons is a COPY of the array and not a reference to the original, which could be problematic
         const persons = [...this.state.persons];
         persons.splice(personIndex, 1);
         this.setState({persons: persons})
@@ -56,13 +56,6 @@ class App extends Component{
 
 
 render() {
-    const btnStyle = {
-        backgroundColor: '#b7c3b7',
-        border: '1px solid blue',
-        padding: '8px',
-        cursor: 'pointer',
-        font: 'inherit'
-    }
 
     let persons = null;
     if(this.state.showPersons){
@@ -87,7 +80,7 @@ render() {
         <h1>My first REACT app!</h1>
         {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
         <button
-            style={btnStyle}
+            className={'btnStyle'}
             onClick={this.togglePersonHandler}>Show My Peeps</button>
         {persons}
         <div className={'assignmentOne'}>
