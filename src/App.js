@@ -83,6 +83,8 @@ render() {
             className={'btnStyle'}
             onClick={this.togglePersonHandler}>Show My Peeps</button>
         {persons}
+
+        {/*assignment one code*/}
         <div className={'assignmentOne'}>
             <h1>Assignment One</h1>
             <UserOutput
@@ -92,6 +94,11 @@ render() {
                 username={this.state.username}
                 changed={this.usernameHandler}
             />
+        </div>
+
+        {/*assignment two code*/}
+        <div className={'assignmentTwo'}>
+            <h1>Assignment Two</h1>
         </div>
     </div>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
