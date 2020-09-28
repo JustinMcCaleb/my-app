@@ -73,10 +73,12 @@ class App extends Component{
 
     //deletes char
     deleteCharHandler = (charIndex) => {
-
+        let copyString = this.state.inputValue;
+        let newCharArray = copyString.split('');
+        newCharArray.splice(charIndex, 1);
+        newCharArray = newCharArray.join('');
+        this.setState({inputValue: newCharArray});
     }
-
-
 
 render() {
 
@@ -140,13 +142,13 @@ render() {
                 <input
                     type="text"
                     onChange={(event => this.inputLengthHandler(event))}
+                    value={this.state.inputValue}
                 />
                 <p>Total Length: {this.state.inputLength}</p>
                 <hr/>
                 {/*I had to use the /> to get the props to work in ValidationComponent.js*/}
                 <ValidationComponent
                     textLength={this.state.inputLength}
-                    value={this.state.inputValue}
                 />
                 <hr/>
                 {chars}
