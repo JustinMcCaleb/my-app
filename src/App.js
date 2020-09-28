@@ -3,6 +3,7 @@ import './App.css';
 import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
 import UserInput from './UserInput/UserInput';
+import ValidationComponent from './Validation/ValidationComponent';
 
 class App extends Component{
     state = {
@@ -111,6 +112,10 @@ render() {
                     onChange={(event => this.inputLengthHandler(event))}
                 />
                 <p>Total Length: {this.state.inputLength}</p>
+                <hr/>
+                <ValidationComponent>
+
+                </ValidationComponent>
             </div>
         </div>
     </div>
