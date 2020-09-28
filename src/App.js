@@ -55,7 +55,7 @@ class App extends Component{
         this.setState({showPersons: !doesShow})
     }
 
-    //returns length of input
+    //updates length of input
     inputLengthHandler = (event) => {
         this.setState({inputLength: event.target.value.length})
     }
@@ -113,9 +113,10 @@ render() {
                 />
                 <p>Total Length: {this.state.inputLength}</p>
                 <hr/>
-                <ValidationComponent>
-
-                </ValidationComponent>
+                {/*I had to use the /> to get the props to work in ValidationComponent.js*/}
+                <ValidationComponent
+                    textLength={this.state.inputLength}
+                />
             </div>
         </div>
     </div>
