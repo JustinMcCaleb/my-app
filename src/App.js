@@ -77,7 +77,10 @@ class App extends Component{
         let newCharArray = copyString.split('');
         newCharArray.splice(charIndex, 1);
         newCharArray = newCharArray.join('');
-        this.setState({inputValue: newCharArray});
+        this.setState({
+            inputValue: newCharArray,
+            inputLength: newCharArray.length
+        });
     }
 
 render() {
