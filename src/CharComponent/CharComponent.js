@@ -1,7 +1,12 @@
 import React from "react";
+import './CharComponent.css';
 
 const CharComponent = (props) => {
-    return <p>Char Component</p>
+    return (
+        <div className={'CharComponent'}>
+            <p>Char componentt</p>
+        </div>
+    )
 }
 
 export default CharComponent;
