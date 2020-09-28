@@ -16,6 +16,7 @@ class App extends Component{
         username: "Good Ol Jeff",
         showPersons: false,
         inputLength: 0,
+        inputValue: '',
     }
 
     deletePersonHandler = (personIndex) => {
@@ -56,9 +57,17 @@ class App extends Component{
         this.setState({showPersons: !doesShow})
     }
 
-    //updates length of input
+    //updates length of input and updates the input value
     inputLengthHandler = (event) => {
-        this.setState({inputLength: event.target.value.length})
+        this.setState(
+            {
+                inputLength: event.target.value.length,
+                inputValue: event.target.value
+            })
+    }
+
+    stringToArray = (str) => {
+        return str.split('');
     }
 
 
@@ -82,6 +91,19 @@ render() {
             </div>
         )
     }
+
+
+
+    let chars = (
+        <div>
+            {this.stringToArray(this.state.inputValue).map((char,index) => {
+               return  <CharComponent
+                        key={index}
+                        textInput={char}
+                        />
+            })}
+        </div>
+    )
 
     return (
     <div className="App">
@@ -119,7 +141,7 @@ render() {
                     textLength={this.state.inputLength}
                 />
                 <hr/>
-                <CharComponent/>
+                {chars}
             </div>
         </div>
     </div>
