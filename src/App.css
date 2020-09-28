@@ -7,16 +7,26 @@ body {
   border: 2px solid rgba(6, 195, 88, 0.6);
 }
 
-.assignmentOne {
-  width: 30%;
-  margin: 16px auto;
-  border: 2px solid deeppink;
-}
-
 .btnStyle {
   background-color: #b7c3b7;
   border: 1px solid blue;
   padding: 8px;
   cursor: pointer;
   font: inherit;
+}
+
+.assignmentContainer{
+  display: flex;
+}
+
+.assignmentOne {
+  width: 30%;
+  margin: 16px auto;
+  border: 2px solid deeppink;
+}
+
+.assignmentTwo {
+  width: 30%;
+  margin: 16px auto;
+  border: 2px solid deeppink;
 }
