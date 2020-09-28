@@ -12,7 +12,8 @@ class App extends Component{
             { id: 3,name: 'Fluffy', age: 278}
         ],
         username: "Good Ol Jeff",
-        showPersons: false
+        showPersons: false,
+        inputLength: 0,
     }
 
     deletePersonHandler = (personIndex) => {
@@ -51,6 +52,11 @@ class App extends Component{
     togglePersonHandler = () => {
         const doesShow = this.state.showPersons;
         this.setState({showPersons: !doesShow})
+    }
+
+    //returns length of input
+    inputLengthHandler = (event) => {
+        this.setState({inputLength: event.target.value.length})
     }
 
 
@@ -100,7 +106,11 @@ render() {
             {/*assignment two code*/}
             <div className={'assignmentTwo'}>
                 <h1>Assignment Two</h1>
-                <input type="text"/>
+                <input
+                    type="text"
+                    onChange={(event => this.inputLengthHandler(event))}
+                />
+                <p>Total Length: {this.state.inputLength}</p>
             </div>
         </div>
     </div>
