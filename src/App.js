@@ -4,6 +4,7 @@ import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
 import UserInput from './UserInput/UserInput';
 import ValidationComponent from './Validation/ValidationComponent';
+import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component{
     state = {
@@ -117,6 +118,8 @@ render() {
                 <ValidationComponent
                     textLength={this.state.inputLength}
                 />
+                <hr/>
+                <CharComponent/>
             </div>
         </div>
     </div>
