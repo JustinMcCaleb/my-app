@@ -93,6 +93,10 @@ render() {
         padding: '8px',
         cursor: 'pointer',
         font: 'inherit',
+     ':hover': {
+            backgroundColor: 'lightgreen',
+            color: 'black'
+     }
     }
 
     let persons = null;
@@ -112,6 +116,10 @@ render() {
             </div>
         )
             btnStyle.backgroundColor = 'red';
+            btnStyle[':hover'] = {
+                backgroundColor: 'lightpink',
+                color: 'black'
+            }
     }
 
 
