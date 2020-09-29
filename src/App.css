@@ -7,6 +7,13 @@ body {
   border: 2px solid rgba(6, 195, 88, 0.6);
 }
 
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
 
 .assignmentContainer{
   display: flex;

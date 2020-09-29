@@ -84,7 +84,7 @@ class App extends Component{
     }
 
 render() {
-
+//here we are setting the btn style with javascript and then changing it in the if statement below for dynamic styling
  const btnStyle = {
         backgroundColor: 'green',
         color: 'white',
@@ -127,9 +127,12 @@ render() {
         </div>
     )
 
+    let classes = ['red', 'bold'].join(' ');
+
     return (
     <div className="App">
         <h1>My first REACT app!</h1>
+        <p className={classes}>Dynamic class test</p>
         {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
         <button
             style={btnStyle}
