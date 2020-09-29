@@ -85,6 +85,14 @@ class App extends Component{
 
 render() {
 
+ const btnStyle = {
+        backgroundColor: '#b7c3b7',
+        border: '1px solid blue',
+        padding: '8px',
+        cursor: 'pointer',
+        font: 'inherit',
+    }
+
     let persons = null;
     if(this.state.showPersons){
         persons = (
@@ -122,7 +130,7 @@ render() {
         <h1>My first REACT app!</h1>
         {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
         <button
-            className={'btnStyle'}
+            style={btnStyle}
             onClick={this.togglePersonHandler}>Show My Peeps</button>
         {persons}
 
