@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Radium from 'radium';
+// import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
@@ -141,51 +141,54 @@ render() {
     if(this.state.persons.length <= 1){ classes.push('bold')}
 
     return (
-    <div className="App">
-        <h1>My first REACT app!</h1>
-        <p className={classes.join(' ')}>Dynamic class test</p>
-        {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
-        <button
-            style={btnStyle}
-            onClick={this.togglePersonHandler}>Show My Peeps</button>
-        {persons}
+        //This import from Radium is necessary in order to use media queries like we do in the person component (Person.js)
+        // <StyleRoot>
+            <div className="App">
+                <h1>My first REACT app!</h1>
+                <p className={classes.join(' ')}>Dynamic class test</p>
+                {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
+                <button
+                    style={btnStyle}
+                    onClick={this.togglePersonHandler}>Show My Peeps</button>
+                {persons}
 
-        <div className={'assignmentContainer'}>
-            {/*assignment one code*/}
-            <div className={'assignmentOne'}>
-                <h1>Assignment One</h1>
-                <UserOutput
-                    username={this.state.username}
-                />
-                <UserInput
-                    username={this.state.username}
-                    changed={this.usernameHandler}
-                />
-            </div>
+                <div className={'assignmentContainer'}>
+                    {/*assignment one code*/}
+                    <div className={'assignmentOne'}>
+                        <h1>Assignment One</h1>
+                        <UserOutput
+                            username={this.state.username}
+                        />
+                        <UserInput
+                            username={this.state.username}
+                            changed={this.usernameHandler}
+                        />
+                    </div>
 
-            {/*assignment two code*/}
-            <div className={'assignmentTwo'}>
-                <h1>Assignment Two</h1>
-                <input
-                    type="text"
-                    onChange={(event => this.inputLengthHandler(event))}
-                    value={this.state.inputValue}
-                />
-                <p>Total Length: {this.state.inputLength}</p>
-                <hr/>
-                {/*I had to use the /> to get the props to work in ValidationComponent.js*/}
-                <ValidationComponent
-                    textLength={this.state.inputLength}
-                />
-                <hr/>
-                {chars}
+                    {/*assignment two code*/}
+                    <div className={'assignmentTwo'}>
+                        <h1>Assignment Two</h1>
+                        <input
+                            type="text"
+                            onChange={(event => this.inputLengthHandler(event))}
+                            value={this.state.inputValue}
+                        />
+                        <p>Total Length: {this.state.inputLength}</p>
+                        <hr/>
+                        {/*I had to use the /> to get the props to work in ValidationComponent.js*/}
+                        <ValidationComponent
+                            textLength={this.state.inputLength}
+                        />
+                        <hr/>
+                        {chars}
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        // </StyleRoot>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
       // React.createElement('div', {className: 'App'}, React.createElement('h1',null,'I\'m a React.createElement element'))
   );
 }
 }
-
-export default Radium(App);
+// export default Radium(App);
+export default App;
