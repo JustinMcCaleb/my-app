@@ -127,12 +127,14 @@ render() {
         </div>
     )
 
-    let classes = ['red', 'bold'].join(' ');
+    let classes = [];
+    if(this.state.persons.length <= 2){ classes.push('red') }
+    if(this.state.persons.length <= 1){ classes.push('bold')}
 
     return (
     <div className="App">
         <h1>My first REACT app!</h1>
-        <p className={classes}>Dynamic class test</p>
+        <p className={classes.join(' ')}>Dynamic class test</p>
         {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
         <button
             style={btnStyle}
