@@ -11,8 +11,8 @@ const StyledDiv = styled.div`
     padding: 16px;
     text-align: center;
     
-    @media (min-width: 500px): {
-            width: '450px',
+    @media (min-width: 500px) {
+            width: 450px;
         }
     
 }
