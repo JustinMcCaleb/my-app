@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Radium, { StyleRoot } from 'radium';
+// import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
@@ -142,7 +142,7 @@ render() {
 
     return (
         //This import from Radium is necessary in order to use media queries like we do in the person component (Person.js)
-        <StyleRoot>
+        // <StyleRoot>
             <div className="App">
                 <h1>My first REACT app!</h1>
                 <p className={classes.join(' ')}>Dynamic class test</p>
@@ -184,11 +184,11 @@ render() {
                     </div>
                 </div>
             </div>
-        </StyleRoot>
+        // </StyleRoot>
       //the below code is what the above JSX (NOT HTML) code gets COMPILED into. It just serves as an example of what the JSX above code gets turned into with the React import
       // React.createElement('div', {className: 'App'}, React.createElement('h1',null,'I\'m a React.createElement element'))
   );
 }
 }
-
-export default Radium(App);
+// export default Radium(App);
+export default App;
