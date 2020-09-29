@@ -7,12 +7,12 @@ body {
   border: 2px solid rgba(6, 195, 88, 0.6);
 }
 
-.btnStyle {
-  background-color: #b7c3b7;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
-  font: inherit;
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .assignmentContainer{

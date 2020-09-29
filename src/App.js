@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Radium from 'radium';
 import './App.css';
 import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
@@ -84,6 +85,19 @@ class App extends Component{
     }
 
 render() {
+//here we are setting the btn style with javascript and then changing it in the if statement below for dynamic styling
+ const btnStyle = {
+        backgroundColor: 'green',
+        color: 'white',
+        border: '1px solid blue',
+        padding: '8px',
+        cursor: 'pointer',
+        font: 'inherit',
+     ':hover': {
+            backgroundColor: 'lightgreen',
+            color: 'black'
+     }
+    }
 
     let persons = null;
     if(this.state.showPersons){
@@ -101,6 +115,11 @@ render() {
                 })}
             </div>
         )
+            btnStyle.backgroundColor = 'red';
+            btnStyle[':hover'] = {
+                backgroundColor: 'lightpink',
+                color: 'black'
+            }
     }
 
 
@@ -117,12 +136,17 @@ render() {
         </div>
     )
 
+    let classes = [];
+    if(this.state.persons.length <= 2){ classes.push('red') }
+    if(this.state.persons.length <= 1){ classes.push('bold')}
+
     return (
     <div className="App">
         <h1>My first REACT app!</h1>
+        <p className={classes.join(' ')}>Dynamic class test</p>
         {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
         <button
-            className={'btnStyle'}
+            style={btnStyle}
             onClick={this.togglePersonHandler}>Show My Peeps</button>
         {persons}
 
@@ -164,4 +188,4 @@ render() {
 }
 }
 
-export default App;
+export default Radium(App);
