@@ -141,6 +141,7 @@ render() {
     if(this.state.persons.length <= 1){ classes.push('bold')}
 
     return (
+        //This import from Radium is necessary in order to use media queries like we do in the person component (Person.js)
         <StyleRoot>
             <div className="App">
                 <h1>My first REACT app!</h1>
