@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Radium from 'radium';
 import './App.css';
 import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
@@ -179,4 +180,4 @@ render() {
 }
 }
 
-export default App;
+export default Radium(App);
