@@ -1,11 +1,26 @@
 import React, {Component} from 'react';
 // import Radium, { StyleRoot } from 'radium';
+import styled from 'styled-components';
 import './App.css';
 import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
 import UserInput from './UserInput/UserInput';
 import ValidationComponent from './Validation/ValidationComponent';
 import CharComponent from './CharComponent/CharComponent';
+
+
+const StyledBtn = styled.button`
+    background-color: ${props => props.alt ? 'red' : 'green'};
+        color: white;
+        border: 1px solid blue;
+        padding: 8px;
+        cursor: pointer;
+        font: inherit;
+     &:hover {
+            background-color: ${props => props.alt ? 'salmon': 'lightgreen'};
+            color: black;
+     }
+    `
 
 class App extends Component{
     state = {
@@ -86,18 +101,18 @@ class App extends Component{
 
 render() {
 //here we are setting the btn style with javascript and then changing it in the if statement below for dynamic styling
- const btnStyle = {
-        backgroundColor: 'green',
-        color: 'white',
-        border: '1px solid blue',
-        padding: '8px',
-        cursor: 'pointer',
-        font: 'inherit',
-     ':hover': {
-            backgroundColor: 'lightgreen',
-            color: 'black'
-     }
-    }
+//  const btnStyle = {
+//         backgroundColor: 'green',
+//         color: 'white',
+//         border: '1px solid blue',
+//         padding: '8px',
+//         cursor: 'pointer',
+//         font: 'inherit',
+//      ':hover': {
+//             backgroundColor: 'lightgreen',
+//             color: 'black'
+//      }
+//     }
 
     let persons = null;
     if(this.state.showPersons){
@@ -115,11 +130,11 @@ render() {
                 })}
             </div>
         )
-            btnStyle.backgroundColor = 'red';
-            btnStyle[':hover'] = {
-                backgroundColor: 'lightpink',
-                color: 'black'
-            }
+            // btnStyle.backgroundColor = 'red';
+            // btnStyle[':hover'] = {
+            //     backgroundColor: 'lightpink',
+            //     color: 'black'
+            // }
     }
 
 
@@ -147,9 +162,9 @@ render() {
                 <h1>My first REACT app!</h1>
                 <p className={classes.join(' ')}>Dynamic class test</p>
                 {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
-                <button
-                    style={btnStyle}
-                    onClick={this.togglePersonHandler}>Show My Peeps</button>
+                <StyledBtn
+                    alt={this.state.showPersons}
+                    onClick={this.togglePersonHandler}>Show My Peeps</StyledBtn>
                 {persons}
 
                 <div className={'assignmentContainer'}>
