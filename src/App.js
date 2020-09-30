@@ -163,6 +163,7 @@ render() {
                 <p className={classes.join(' ')}>Dynamic class test</p>
                 {/*this way of using an anon function is not the recommended practice, use the bind method instead*/}
                 <StyledBtn
+                    alt={this.state.showPersons}
                     onClick={this.togglePersonHandler}>Show My Peeps</StyledBtn>
                 {persons}
 
