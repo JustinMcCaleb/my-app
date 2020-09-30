@@ -10,7 +10,7 @@ import CharComponent from './CharComponent/CharComponent';
 
 
 const StyledBtn = styled.button`
-    background-color: green;
+    background-color: ${props => props.alt ? 'red' : 'green'};
         color: white;
         border: 1px solid blue;
         padding: 8px;
